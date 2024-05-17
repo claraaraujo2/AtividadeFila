@@ -1,0 +1,7 @@
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\bin\Debug\att.exe.config
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\bin\Debug\att.exe
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\bin\Debug\att.pdb
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\obj\Debug\att.csproj.AssemblyReference.cache
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\obj\Debug\att.csproj.CoreCompileInputs.cache
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\obj\Debug\att.exe
+C:\Users\khaleu\Desktop\Etec\DS\ProgramaçãoAlgo\AtividadeFila\obj\Debug\att.pdb

@@ -8,50 +8,55 @@ namespace atividadeVetor
 {
     internal class Program
     {
-        static Cliente[] clientes = new Cliente[10];
-        private static void exibir()
-        {
-            Console.WriteLine("\n\n");
-            foreach (Cliente cli in clientes)
-            {
-                if (cli != null)
-                {
-                    Console.WriteLine(cli.nome);
-                }
-            }
-            Console.WriteLine("\n\n");
-            Console.ReadKey();
-        }
         static void Main(string[] args)
         {
-            int i = 0;
+            int totalpessoas = 0;
             int nmrPrioridade = 0;
+            
             string op = "0";
 
-            while (true)
+            string nome;
+            string prioritario;
+            bool bool_priori = false;
+
+            Cliente[] clientes = new Cliente[10];
+
+            void exibir()
+            {
+                int contador = 0;
+                Console.WriteLine("\n\n==========Lista de clientes============\n\n");
+                foreach (Cliente cli in clientes)
+                {
+                    if (cli != null)
+                    {
+                        contador++;
+                        Console.WriteLine("  " + contador + "° " + cli.nome);
+                    }
+                }
+                Console.WriteLine("\n\n=======================================");
+            }
+
+            while (op != "q")
             {
                 Console.WriteLine("\n=======================================\n Deseja cadastrar um novo cliente [1]\n Deseja atender um cliente [2]\n Listar clientes na fila [3]\n Para fechar [q]\n=======================================\n");
-                op = Console.ReadLine();
+                op = Console.ReadLine().ToLower();
+                Console.WriteLine("\n=======================================");
                 switch (op)
                 {
                     case "1":
-                       if (i < 10)
+                       if (totalpessoas < 10)
                         {
-                            string nome;
-                            string prioritario;
-                            bool bool_priori = false;
                             Cliente cliente;
-
                             Console.WriteLine("\nDigite o nome do cliente");
                             nome = Console.ReadLine();
                             Console.WriteLine("\nÉ prioritario? [S/N]");
                             prioritario = Console.ReadLine().ToUpper();
-
+                            Console.WriteLine("\n=======================================");
                             if (prioritario == "S")
                             {
                                 bool_priori = true;
                                 cliente = new Cliente(nome, bool_priori);
-                                for (int c = i+1; c > nmrPrioridade; c--)
+                                for (int c = totalpessoas; c > nmrPrioridade; c--)
                                 {
                                     clientes[c] = clientes[c-1];
                                 }
@@ -61,9 +66,14 @@ namespace atividadeVetor
                             else if (prioritario == "N")
                             {
                                 cliente = new Cliente(nome, bool_priori);
-                                clientes[i] = (cliente);
+                                clientes[totalpessoas] = (cliente);
                             }
-                            i++;
+                            else
+                            {
+                                Console.WriteLine("Não há essa opção para cadastro, favor reinserir os dados");
+                                break;
+                            }
+                            totalpessoas++;
                             exibir();
                         }
                         else
@@ -73,31 +83,20 @@ namespace atividadeVetor
                         break;
 
                     case "2":
-                        if (i > 0)
+                        if (totalpessoas > 0)
                         {
-                            if (nmrPrioridade > 0) { nmrPrioridade--; }
-
+                            if (nmrPrioridade > 0) 
+                            { 
+                                nmrPrioridade--; 
+                            }
                             for (int c = 0; c < 9; c++)
                             {
                                 clientes[c] = clientes[c + 1];
                             }
-                            clientes[i] = null;
-                            i--;
-
+                            clientes[totalpessoas] = null;
+                            totalpessoas--;
                             Console.WriteLine("\nCliente atendido com sucesso");
-
-
-                            Console.WriteLine("\n\n");
-                            foreach (Cliente cli in clientes)
-                            {
-                                if (cli != null)
-                                {
-                                    Console.WriteLine(cli.nome);
-                                }
-                            }
-                            Console.WriteLine("\n\n");
                             exibir();
-                            Console.ReadKey();
                         }
                         else { Console.WriteLine("\nA fila ta vazia, vai atender oq?"); }
                     break;
@@ -105,11 +104,7 @@ namespace atividadeVetor
                     case "3":
                         exibir();
                         break;
-                    case "q":
-
-                        break;
                 }
-                
             }
         }
     }

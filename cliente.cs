@@ -9,11 +9,11 @@ namespace atividadeVetor
     internal class Cliente
     {
         public string nome;
-        bool prioritario;
+        bool bool_prioritario;
         public Cliente(string nome, bool prioritario)
         {
             this.nome = nome;
-            this.prioritario = prioritario;
+            this.bool_prioritario = prioritario;
         }
     }
 }
