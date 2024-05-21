@@ -1,2 +1,2 @@
-Clara Santana Araújo
-Khaleu Mancini Sanches
+- Clara Santana Araujo
+- Khaléu Sanches Mancini
